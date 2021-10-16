@@ -37,11 +37,23 @@ namespace Examples.Charge.API.Controllers
             }
             catch (PersonException ex)
             {
-                return Response(HttpStatusCode.NotFound, ex.Message);
+                var response = new PersonResponse()
+                {
+                    Errors = new List<string>() { ex.Message },
+                    Success = false
+                };
+                
+                return Response(HttpStatusCode.NotFound, response);
             }
             catch (Exception ex)
             {
-                return Response(HttpStatusCode.BadRequest, ex.Message);
+                var response = new PersonResponse()
+                {
+                    Errors = new List<string>() { ex.Message },
+                    Success = false
+                };
+
+                return Response(HttpStatusCode.BadRequest, response);
             }
 
         }
@@ -57,7 +69,13 @@ namespace Examples.Charge.API.Controllers
             }
             catch (Exception ex)
             {
-                return Response(HttpStatusCode.BadRequest, ex.Message);
+                var response = new PersonResponse()
+                {
+                    Errors = new List<string>() { ex.Message },
+                    Success = false
+                };
+
+                return Response(HttpStatusCode.BadRequest, response);
             }
         }
 
@@ -70,11 +88,21 @@ namespace Examples.Charge.API.Controllers
             }
             catch (PersonException ex)
             {
-                return Response(HttpStatusCode.NotFound, ex.Message);
+                var response = new PersonResponse()
+                {
+                    Errors = new List<string>() { ex.Message },
+                    Success = false
+                };
+                return Response(HttpStatusCode.NotFound, response);
             }
             catch (Exception ex)
             {
-                return Response(HttpStatusCode.BadRequest, ex.Message);
+                var response = new PersonResponse()
+                {
+                    Errors = new List<string>() { ex.Message },
+                    Success = false
+                };
+                return Response(HttpStatusCode.BadRequest, response);
             }
 
         }

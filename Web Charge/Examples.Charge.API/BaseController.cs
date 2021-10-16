@@ -22,14 +22,15 @@ namespace Examples.Charge.API
             }
         }
 
-        protected new ActionResult Response(HttpStatusCode errorCode, string message)
+        protected new ActionResult Response(HttpStatusCode errorCode, BaseResponse response)
         {
             if(errorCode == HttpStatusCode.NotFound)
             {
                 return NotFound(new
                 {
                     success = false,
-                    data = message
+                    data = response
+
                 });
             }
             else
@@ -37,7 +38,7 @@ namespace Examples.Charge.API
                 return BadRequest (new
                 {
                     success = false,
-                    data = message
+                    data = response
                 });
             }
         }

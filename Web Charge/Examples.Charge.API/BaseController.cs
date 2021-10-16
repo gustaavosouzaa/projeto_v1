@@ -1,5 +1,6 @@
 ﻿using Examples.Charge.Application.Common.Messages;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Examples.Charge.API
 {
@@ -21,9 +22,9 @@ namespace Examples.Charge.API
             }
         }
 
-        protected new ActionResult Response(int errorCode, string message)
+        protected new ActionResult Response(HttpStatusCode errorCode, string message)
         {
-            if(errorCode == 404)
+            if(errorCode == HttpStatusCode.NotFound)
             {
                 return NotFound(new
                 {

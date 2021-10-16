@@ -42,7 +42,7 @@ namespace Examples.Charge.Application.Facade
             return new PersonResponse() { PersonObject = _mapper.Map<PersonDto>(result) };
         }
 
-        public async Task<PersonResponse> AddPhones(int personId, List<PersonPhoneRequest> personPhones)
+        public async Task<PersonResponse> AddPhonesAsync(int personId, List<PersonPhoneRequest> personPhones)
         {
             Person person = await _personService.GetByIdAsync(personId); 
 
